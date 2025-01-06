@@ -12,9 +12,14 @@ class WeatherDashboard:
     def __init__(self):
         self.api_key = os.getenv('OPENWEATHER_API_KEY')
         self.bucket_name = os.getenv('AWS_BUCKET_NAME')
-        self.profile_name = os.getenv('PROFILE_NAME')
+        
+        if not self.api_key:
+            raise ValueError("OPENWEATHER_API_KEY is not set.")
+        if not self.bucket_name:
+            raise ValueError("AWS_BUCKET_NAME is not set.")
 
-        session = boto3.Session(profile_name=self.profile_name)
+        profile_name = os.getenv('PROFILE_NAME')
+        session = boto3.Session(profile_name=profile_name)
         self.s3_client = session.client('s3')
 
     def create_bucket_if_not_exists(self):
