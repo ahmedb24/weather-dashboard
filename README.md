@@ -32,7 +32,7 @@ weather-dashboard/ ├── src/ │ ├── init.py │ └── weather_da
 ### Setup Instructions
 1. Clone the repository: --bash git clone https://github.com/ahmedb24/weather-dashboard.git
 2. Install dependencies: --bash pip install -r requirements.txt
-3. Configure environment variables (.env): --bash WEATHER_API_KEY=your_api_key,AWS_BUCKET_NAME=your_bucket_name
+3. Configure environment variables (.env): --bash OPENWEATHER_API_KEY=your_api_key AWS_BUCKET_NAME=your_bucket_name
 4. Configure AWS credentials: --bash aws configure
 5. Run the application: python src/weather_dashboard.py
 
